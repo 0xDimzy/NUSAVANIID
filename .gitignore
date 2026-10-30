@@ -1,0 +1,27 @@
+# Archives & backups
+*.rar
+*.bak
+*.backup
+_backup/
+
+# Local tooling & editor
+.mimosa/
+.vscode/
+node_modules/
+
+# Local server logs
+*.log
+
+# Deploy staging (duplicate of site root — kept local only)
+nusavaniid-deploy/
+
+# Marketing/design source material (not part of the code)
+Bahan post/
+
+# Leftover files not needed for the final website
+accordion.jsx
+.github/
+
+# OS files
+Thumbs.db
+.DS_Store
