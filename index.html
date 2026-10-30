@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=3.4" />
+    <link rel="stylesheet" href="styles.css?v=3.5" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -437,7 +437,24 @@
               </a>
             </div>
             <div class="map-frame">
-              <iframe title="Nusavaniid location map" src="https://www.google.com/maps?q=-8.075684,111.848131&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+              <iframe
+                id="mapEmbed"
+                title="Nusavaniid location map"
+                data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d587.2087030710982!2d111.84810528135215!3d-8.07560282514033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e791d212576141b%3A0xd0e4d5d469b02bab!2sNusavaniid!5e0!3m2!1sid!2smx!4v1793400815530!5m2!1sid!2smx"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+              <button class="map-load" id="mapLoadBtn" type="button" aria-label="Load interactive map / Muat peta interaktif">
+                <span class="map-load-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z"/>
+                    <circle cx="12" cy="10" r="2.6"/>
+                  </svg>
+                </span>
+                <b data-en="Load interactive map" data-id="Muat peta interaktif">Load interactive map</b>
+                <small data-en="Google Maps loads only when you click — no cookies before that." data-id="Google Maps hanya dimuat saat Anda klik — tanpa cookie sebelumnya.">Google Maps loads only when you click — no cookies before that.</small>
+              </button>
             </div>
           </div>
         </div>
@@ -541,6 +558,6 @@
 
     <div class="toast" id="toast" role="status"></div>
     <script src="site.config.js"></script>
-    <script src="script.js?v=3.5"></script>
+    <script src="script.js?v=3.6"></script>
   </body>
 </html>

@@ -2043,6 +2043,21 @@ if (legalLinks) {
   legalLinks.remove();
 }
 
+/* Click-to-load map — no third-party cookies until the visitor asks for it */
+
+const mapEmbed = $('#mapEmbed');
+const mapLoadBtn = $('#mapLoadBtn');
+
+mapLoadBtn?.addEventListener('click', () => {
+  if (mapEmbed && mapEmbed.dataset.src) {
+    mapEmbed.src = mapEmbed.dataset.src;
+    mapEmbed.removeAttribute('data-src');
+  }
+
+  mapLoadBtn.classList.add('is-loading');
+  setTimeout(() => mapLoadBtn.remove(), 450);
+});
+
 /* Initialize */
 
 $('#langButton')?.addEventListener(
