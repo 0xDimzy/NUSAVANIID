@@ -259,251 +259,6 @@ const en = {
   }
 };
 
-/* Indonesian content — mirrors the `en` object exactly. */
-
-const id = {
-  products: [
-    [
-      'Planifolia Vanilla · Grade A',
-      'Gourmet · Hitam',
-      'images/GRADE-A-opt.jpg',
-      '25–35%',
-      '2.0–2.5%',
-      'Indonesia (Jawa Timur)',
-      'Vakum 1kg / Karton 10kg'
-    ],
-    [
-      'Tahitian Vanilla · Grade A',
-      'Grade A · Gourmet',
-      'images/TAHITIAN-opt.jpg',
-      '25–35%',
-      'Floral / Fruity',
-      'Indonesia (Jawa Timur)',
-      'Vakum 1kg / Karton 10kg'
-    ],
-    [
-      'Bubuk Vanila · 100% Murni',
-      'Biji Giling · Murni',
-      'images/Vanila-Powder-opt.jpg',
-      '0.5–1% Vanillin',
-      '100% Biji Giling Utuh',
-      'Berminyak, Halus 50–150 mikron',
-      'Vakum 1kg / Karton 10kg'
-    ]
-  ],
-
-  features: [
-    [
-      '✧',
-      'Spesifikasi Produk Jelas',
-      'Diskusikan format, asal, grade, kemasan, dan tujuan penggunaan sebelum pesanan dikonfirmasi.'
-    ],
-    [
-      '♧',
-      'Pengadaan Terpilih',
-      'Kami membangun hubungan langsung dengan petani Indonesia dan mitra lokal terpercaya.'
-    ],
-    [
-      '◎',
-      'Diskusi Harga Realistis',
-      'Minta penawaran berdasarkan format produk, jumlah, kemasan, dan tujuan pengiriman.'
-    ],
-    [
-      '♙',
-      'Komunikasi Langsung',
-      'Bicara langsung dengan tim sejak permintaan sampel pertama hingga pengiriman lokal.'
-    ],
-    [
-      '✉',
-      'Dukungan Responsif',
-      'Pertanyaan, dokumen, dan langkah berikutnya ditangani jelas melalui kontak langsung.'
-    ]
-  ],
-
-  steps: [
-    [
-      '♧',
-      'Kebun',
-      'Koperasi petani kecil di dataran tinggi vulkanik.'
-    ],
-    [
-      '✂',
-      'Panen',
-      'Maturasi 9 bulan. Dipetik tangan di puncak kualitas.'
-    ],
-    [
-      '♨',
-      'Fermentasi',
-      'Killing + sweating dengan selimut jute, 8 hari.'
-    ],
-    [
-      '☼',
-      'Pengeringan',
-      'Penjemuran + curing naungan selama 3–4 minggu.'
-    ],
-    [
-      '⚗',
-      'Kontrol Mutu',
-      'Lab internal + verifikasi pihak ketiga.'
-    ],
-    [
-      '▣',
-      'Pengemasan',
-      'Vakum food-grade, ruang berkontrol iklim.'
-    ],
-    [
-      '⚓',
-      'Pengiriman Lokal',
-      'Dikemas hati-hati dan diantar ke lokasi Anda.'
-    ]
-  ],
-
-  testimonials: [
-    [
-      'Kami membangun jaringan ekspor vanila Indonesia yang terpercaya, satu lot terpilih demi satu lot.',
-      'Tim Nusavaniid',
-      'Pendekatan pendirian kami'
-    ],
-    [
-      'Setiap percakapan dimulai dari produk: asal, format, spesifikasi, dan kebutuhan pembeli.',
-      'Komunikasi langsung',
-      'Cara kami bekerja'
-    ],
-    [
-      'Kami menyambut percakapan awal dengan produsen dan pembeli yang menghargai kejelasan, kesabaran, dan hubungan jangka panjang.',
-      'Terbuka untuk pengadaan',
-      'Siapa yang kami layani'
-    ],
-    [
-      'Dokumentasi, sampel, dan syarat akhir dibicarakan dengan jelas sebelum pesanan dikonfirmasi.',
-      'Pemesanan lewat percakapan',
-      'Janji kami'
-    ]
-  ],
-
-  faqs: [
-    [
-      'Berapa minimum order quantity (MOQ) Anda?',
-      'MOQ bergantung pada grade: Gourmet premium mulai 2 kg, Grade A 5 kg, dan Grade B/ekstrak 10 kg+. Pesanan sampel 100–500 g tersedia untuk pembeli baru.'
-    ],
-    [
-      'Apakah Anda menyediakan Certificate of Analysis (COA)?',
-      'Dokumentasi dan laporan uji dapat didiskusikan untuk lot terpilih dan lingkup yang disepakati sebelum pesanan dikonfirmasi.'
-    ],
-    [
-      'Incoterm apa saja yang Anda dukung?',
-      'FOB Surabaya adalah standar. Kami juga melayani CIF, CFR, DDP, dan EXW. Pengiriman udara tersedia via DAP / DDP.'
-    ],
-    [
-      'Berapa lama waktu pengiriman?',
-      'Waktu bergantung pada kesiapan produk, tujuan, dan metode pengiriman. Estimasi akan kami konfirmasi dalam penawaran.'
-    ],
-    [
-      'Bisakah private label atau kemasan kustom?',
-      'Tentu. Kami menyediakan vacuum pouch co-branding, tabung kaca, karton siap ritel, dan kemasan OEM.'
-    ],
-    [
-      'Apakah kebun Anda bersertifikat organik?',
-      'Sertifikasi bergantung pada lot terpilih. Dokumentasi yang tersedia akan dibagikan secara transparan saat diskusi pengadaan.'
-    ],
-    [
-      'Bagaimana cara meminta sampel?',
-      'Gunakan formulir kontak di bawah atau WhatsApp desk ekspor kami. Sampel dikirim dalam 24–48 jam via DHL/FedEx.'
-    ]
-  ],
-
-  exports: [
-    [
-      'Opsi pengiriman',
-      [
-        'Laut · FCL 20ft/40ft reefer',
-        'Laut · Konsolidasi LCL',
-        'Udara · Express 3–7 hari',
-        'Kurir · DHL/FedEx untuk sampel'
-      ],
-      'assets/export-container-opt.jpg'
-    ],
-    [
-      'Waktu proses',
-      [
-        'Pengiriman sampel: 24–48 jam',
-        'Konfirmasi pesanan: 1–2 hari',
-        'Produksi & QC: 5–10 hari',
-        'Keberangkatan kapal Surabaya: mingguan'
-      ],
-      'assets/export-warehouse-opt.jpg'
-    ],
-    [
-      'Pengemasan',
-      [
-        'Vacuum pouch food-grade',
-        'Satuan 1 kg / 5 kg / 10 kg',
-        'Master carton + pelindung sudut',
-        'Private label & siap ritel tersedia'
-      ],
-      'assets/export-packaging-opt.jpg'
-    ],
-    [
-      'Negara yang kami layani',
-      [
-        'USA · Kanada · Meksiko',
-        'UE · Inggris · Swiss · Norwegia',
-        'UEA · Arab Saudi · Qatar · Kuwait',
-        'Jepang · Korea · Singapura · Australia'
-      ],
-      'assets/export-port-opt.jpg'
-    ]
-  ],
-
-  productStrings: {
-    originPill: 'Terroir Vulkanik · Jawa Timur',
-    exportTag: 'Ekspor Single Origin',
-    pricingLabel: 'HARGA EKSPOR (USD / KG)',
-    inquire: 'Tanya Lot Ini',
-    specSheet: 'Minta Spec Sheet',
-    specSheetMsg: 'Halo Nusavaniid, saya ingin meminta lembar spesifikasi untuk',
-    tiers: {
-      planifolia: [
-        { len: '14–15 cm', price: '$162' },
-        { len: '16–17 cm', price: '$165', featured: true },
-        { len: '18–19 cm', price: '$178' }
-      ],
-      tahitian: [
-        { len: '17 cm Grade A', price: '$181', featured: true }
-      ],
-      powder: [
-        { len: '1 kg Bubuk Murni', price: '$133', featured: true }
-      ]
-    },
-    specs: {
-      powder: [
-        ['Komposisi', '100% biji vanila murni'],
-        ['Tekstur', 'Tekstur halus'],
-        ['Aplikasi', 'Mudah digunakan'],
-        ['Aroma', 'Aroma vanila kaya'],
-        ['Kemurnian', 'Tanpa gula, tanpa filler'],
-        ['Kemasan', 'Vakum 1kg / Karton 10kg']
-      ],
-      tahitian: [
-        ['Grade', 'Grade A'],
-        ['Panjang', '17 cm'],
-        ['Aroma', 'Aroma floral & fruity'],
-        ['Tekstur', 'Tekstur lembut & lembap'],
-        ['Kadar Air', '25–35%'],
-        ['Kemasan', 'Vakum 1kg / Karton 10kg']
-      ],
-      planifolia: [
-        ['Grade', 'Grade A'],
-        ['Kualitas Pod', 'Pod panjang, gemuk & mengkilap'],
-        ['Aroma', 'Aroma kaya & creamy'],
-        ['Kadar Air', '25–35%'],
-        ['Terroir', 'Indonesia (Jawa)'],
-        ['Kemasan', 'Vakum 1kg / Karton 10kg']
-      ]
-    }
-  }
-};
-
 const arrowIcon = `
   <span class="arrow-icon" aria-hidden="true">
     <svg
@@ -635,131 +390,7 @@ const copy = {
   }
 };
 
-/* Indonesian copy — mirrors the `copy` object exactly. */
-
-const idCopy = {
-  products: [
-    'PRODUK KAMI',
-    'Vanila untuk setiap aplikasi.',
-    'Dari biji gourmet hingga bubuk murni ultra-halus, setiap lot dimulai dari seleksi tanpa kompromi.'
-  ],
-
-  why: [
-    'MENGAPA NUSAVANIID',
-    'Dibangun untuk pembeli<br><i>yang berpikir jangka panjang.</i>'
-  ],
-
-  export: [
-    'EKSPOR GLOBAL, PENANGANAN LOKAL',
-    'Dari kebun kami<br><i>ke fasilitas Anda.</i>'
-  ],
-
-  process: [
-    'DARI BUNGA MENJADI BIJI',
-    'Proses kami adalah janji kami.'
-  ],
-
-  testimonials: [
-    'PENDEKATAN KAMI',
-    'Dimulai dengan hati-hati. Dibangun untuk jangka panjang.'
-  ],
-
-  faq: [
-    'PERTANYAAN, TERJAWAB',
-    'Sebelum Anda melakukan pemesanan.'
-  ],
-
-  contact: [
-    'MARI BERBICARA',
-    'Siap mengada vanila yang lebih baik?',
-    'Beri tahu kami kebutuhan Anda dan tim ekspor akan merespons dalam empat jam kerja.'
-  ],
-
-  footer: [
-    'Produk',
-    'Perusahaan',
-    'Terhubung'
-  ],
-
-  labels: [
-    'Nama Anda',
-    'Perusahaan / Merek',
-    'Email Bisnis',
-    'Negara Tujuan',
-    'Estimasi Volume',
-    'Grade Produk',
-    'Kebutuhan Khusus atau Catatan'
-  ],
-
-  send: `Lanjut ke WhatsApp ${arrowIcon}`,
-
-  note: 'Pertanyaan Anda akan membuka WhatsApp, siap untuk dikirim.',
-
-  placeholder: 'Ceritakan kebutuhan pengadaan Anda...',
-
-  sample: `Pesan sekarang ${arrowIcon}`,
-
-  valueCards: [
-    [
-      'Visi',
-      'Menjadikan vanila Indonesia yang paling terpercaya di dunia.'
-    ],
-    [
-      'Misi',
-      'Menghubungkan petani dan produsen global secara adil.'
-    ],
-    [
-      'Nilai',
-      'Kualitas, transparansi, keberlanjutan.'
-    ]
-  ],
-
-  formHeader: [
-    'Minta Penawaran Pengadaan',
-    'Respons langsung dalam 4 jam kerja.'
-  ],
-
-  waGreeting: 'Halo Nusavaniid, saya ingin meminta penawaran vanila.',
-
-  galleryToggle: {
-    more: (n) => `Lihat semua ${n} foto arsip`,
-    less: 'Tampilkan lebih sedikit'
-  },
-
-  trustItems: [
-    'PENGADAAN LANGSUNG DARI KEBUN',
-    'PERMINTAAN SAMPEL',
-    'SPESIFIKASI JELAS',
-    'ASAL INDONESIA',
-    'DISKUSI FLEKSIBEL',
-    'PENGIRIMAN LOKAL',
-    'DUKUNGAN LANGSUNG',
-    'LOT TERPILIH HATI-HATI'
-  ],
-
-  mobile: {
-    appearance: 'Tampilan',
-    light: 'Mode terang',
-    dark: 'Mode gelap',
-    quote: 'Minta penawaran',
-    language: 'Bahasa',
-    current: 'Bahasa Indonesia'
-  }
-};
-
-let currentLang = 'en';
-
-try {
-  if (localStorage.getItem('nusavaniid_lang') === 'id') {
-    currentLang = 'id';
-  }
-} catch (err) {
-  /* localStorage unavailable — keep default */
-}
-
-const locale = () => (currentLang === 'id' ? id : en);
-
-const copyFor = () => (currentLang === 'id' ? idCopy : copy);
+const locale = () => en;
 
 const iconSvg = (icon) => {
   const paths = {
@@ -1036,44 +667,20 @@ function write(selector, value) {
   }
 }
 
-function applyStaticLang() {
-  const attr =
-    currentLang === 'id' ? 'data-id' : 'data-en';
-
-  $$(`[${attr}]`).forEach((el) => {
-    const v = el.getAttribute(attr);
-
-    if (v !== null) {
-      el.innerHTML = v;
-    }
-  });
-}
-
 function renderTrustStrip() {
   const track = $('#trustTrack');
 
   if (track) {
-    const items = copyFor().trustItems;
-
-    track.innerHTML = [...items, ...items]
+    track.innerHTML = [...copy.trustItems, ...copy.trustItems]
       .map((x) => `<span>${x}</span>`)
       .join('');
   }
 }
 
-function applyLanguage(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
+function setEnglish() {
+  document.documentElement.lang = 'en';
 
-  try {
-    localStorage.setItem('nusavaniid_lang', lang);
-  } catch (err) {
-    /* localStorage unavailable — skip persistence */
-  }
-
-  applyStaticLang();
-
-  const c = copyFor();
+  const c = copy;
 
   write(
     '#products .eyebrow b',
@@ -1233,31 +840,7 @@ function applyLanguage(lang) {
   );
 
   renderTrustStrip();
-  renderMobileNav();
   renderDynamic();
-
-  $$('.lang-switch .lang-opt').forEach(
-    (b) => {
-      b.classList.toggle(
-        'active',
-        b.dataset.lang === currentLang
-      );
-    }
-  );
-}
-
-function setEnglish() {
-  applyLanguage('en');
-}
-
-function setIndonesian() {
-  applyLanguage('id');
-}
-
-function toggleLanguage() {
-  applyLanguage(
-    currentLang === 'id' ? 'en' : 'id'
-  );
 }
 
 const trustItems = [
@@ -1363,7 +946,7 @@ function updateGalleryDisplay() {
   }
 
   if (galleryToggleText) {
-    const gt = copyFor().galleryToggle;
+    const gt = copy.galleryToggle;
 
     galleryToggleText.textContent = isGalleryExpanded
       ? gt.less
@@ -1750,7 +1333,7 @@ function toggleTheme() {
 
 function renderMobileNav() {
   const isDark = document.body.classList.contains('dark');
-  const m = copyFor().mobile;
+  const m = copy.mobile;
   const linksHtml = $$('.desktop-nav a')
     .map((a) => a.outerHTML)
     .join('');
@@ -1763,13 +1346,6 @@ function renderMobileNav() {
       <button class="mobile-theme-btn" id="mobileThemeBtn" type="button" aria-label="Toggle theme">
         <span class="mobile-theme-icon" style="display:inline-flex;align-items:center;">${themeIcon(isDark)}</span>
         <span class="mobile-theme-text">${isDark ? m.light : m.dark}</span>
-      </button>
-    </div>
-    <div class="mobile-theme-row">
-      <span class="mobile-theme-label">${m.language}</span>
-      <button class="mobile-theme-btn" id="mobileLangBtn" type="button" aria-label="Toggle language">
-        <span class="mobile-theme-icon" style="display:inline-flex;align-items:center;font-weight:700;font-size:12px;letter-spacing:.06em;">${currentLang === 'id' ? 'ID' : 'EN'}</span>
-        <span class="mobile-theme-text">${m.current}</span>
       </button>
     </div>
     <a class="button gold mobile-nav-quote" href="#contact">
@@ -1791,11 +1367,6 @@ function renderMobileNav() {
   $('#mobileThemeBtn')?.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleTheme();
-  });
-
-  $('#mobileLangBtn')?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleLanguage();
   });
 }
 
@@ -1885,7 +1456,7 @@ $('#contactForm').onsubmit = (e) => {
     ).trim() || 'Not provided';
 
   const message = [
-    copyFor().waGreeting,
+    copy.waGreeting,
     '',
     `Name: ${value('name')}`,
     `Company: ${value('company')}`,
@@ -2045,9 +1616,4 @@ if (legalLinks) {
 
 /* Initialize */
 
-$('#langButton')?.addEventListener(
-  'click',
-  toggleLanguage
-);
-
-applyLanguage(currentLang);
+setEnglish();

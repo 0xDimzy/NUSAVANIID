@@ -321,51 +321,6 @@ p:last-child {
   transition: all 0.25s ease;
 }
 
-/* Language switch pill */
-
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  height: 44px;
-  padding: 0 14px;
-  border-radius: 999px;
-  border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-secondary);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  transition: all 0.25s ease;
-}
-
-.lang-switch:hover {
-  border-color: var(--border-gold);
-  color: var(--text-primary);
-}
-
-.lang-switch .lang-opt {
-  font-weight: 600;
-  color: var(--text-muted);
-  transition: color 0.2s ease;
-  padding: 2px 2px;
-}
-
-.lang-switch .lang-opt.active {
-  color: var(--gold);
-}
-
-.lang-switch .lang-sep {
-  opacity: 0.4;
-}
-
-body.light .lang-switch {
-  border-color: var(--border-subtle);
-  background: rgba(10, 7, 5, 0.04);
-}
-
 .icon-button:hover {
   border-color: var(--gold);
   color: var(--gold);
