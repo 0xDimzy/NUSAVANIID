@@ -486,7 +486,7 @@ function renderProducts() {
       <img
         src="${p[2]}"
         alt="${p[0]}"
-        loading="lazy"
+        loading="eager"
         decoding="async"
       >
       <div class="product-origin-pill">${ps.originPill}</div>
@@ -1041,6 +1041,8 @@ function openGallery(index) {
     'false'
   );
 
+  galleryClose?.focus();
+
   document.body.classList.add(
     'gallery-open'
   );
@@ -1361,6 +1363,8 @@ function renderMobileNav() {
   $$('#mobileNav a').forEach((a) => {
     a.addEventListener('click', () => {
       $('#mobileNav').classList.remove('open');
+      $('#menuButton')?.setAttribute('aria-expanded', 'false');
+      $('#mobileNav')?.setAttribute('aria-hidden', 'true');
     });
   });
 
@@ -1391,18 +1395,26 @@ if (themeButton) {
 
 $('#menuButton')?.addEventListener('click', (e) => {
   e.stopPropagation();
-  $('#mobileNav').classList.toggle('open');
+  const menuButton = $('#menuButton');
+  const mobileNav = $('#mobileNav');
+  const isOpen = mobileNav.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+  mobileNav.setAttribute('aria-hidden', String(!isOpen));
 });
 
 document.addEventListener('click', (e) => {
   if (!e.target.closest('#mobileNav') && !e.target.closest('#menuButton')) {
     $('#mobileNav')?.classList.remove('open');
+    $('#menuButton')?.setAttribute('aria-expanded', 'false');
+    $('#mobileNav')?.setAttribute('aria-hidden', 'true');
   }
 });
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     $('#mobileNav')?.classList.remove('open');
+    $('#menuButton')?.setAttribute('aria-expanded', 'false');
+    $('#mobileNav')?.setAttribute('aria-hidden', 'true');
   }
 });
 
