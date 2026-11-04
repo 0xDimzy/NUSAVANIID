@@ -1,5 +1,14 @@
+# ===============================================
+#  Nusavaniid — static site hardening (Apache)
+# ===============================================
+
 Options -Indexes
 DirectoryIndex index.html
+AddDefaultCharset UTF-8
+
+# ---------- Custom error pages ----------
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -13,16 +22,61 @@ DirectoryIndex index.html
   RewriteRule ^(.+)\.html$ /$1 [R=301,L]
 </IfModule>
 
+# ---------- Security headers ----------
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data: https://images.unsplash.com https://images.pexels.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; frame-src 'self' https://www.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'self' https://www.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
 </IfModule>
 
+# ---------- Caching ----------
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 7 days"
   ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
 </IfModule>
+
+# ---------- Deny hidden & sensitive files ----------
+<FilesMatch "^\.">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.(env|bak|backup|old|orig|inc|ini|conf|log|sh|sql|swp|swo|dist|yml|yaml|lock|json|rar|zip|7z|tar|gz)$|[~]$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Block the .git directory if it is ever uploaded
+RedirectMatch 404 /\.git
+
+# ---------- This site is 100% static: disable PHP ----------
+# Stops an uploaded PHP webshell from executing if the hosting
+# account is ever compromised. Remove this block only if PHP
+# is genuinely needed (e.g. a form mailer) later on.
+<FilesMatch "\.(php|phtml|php[0-9])$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
