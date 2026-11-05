@@ -510,7 +510,7 @@ function renderProducts() {
               (t) => `
                 <div class="price-chip ${t.featured ? 'featured' : ''}">
                   <span class="price-len">${t.len}</span>
-                  <b class="price-val">${t.price}<small>/kg</small></b>
+                  <b class="price-val">${t.price}${t.unit === false ? '' : '<small>/kg</small>'}</b>
                 </div>
               `
             )
@@ -553,6 +553,14 @@ function renderProducts() {
           rel="noopener"
         >
           ${ps.specSheet}
+        </a>
+        <a
+          class="spec-csv"
+          href="nusavaniid-catalog.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          ⤓ Product Catalog (PDF)
         </a>
       </div>
 
@@ -1374,16 +1382,16 @@ function renderMobileNav() {
   });
 }
 
-// Restore saved theme preference (Default is Dark)
+// Restore saved theme preference (Default is Light — Emergent cream glass)
 try {
   const savedTheme = localStorage.getItem('nusavaniid_theme');
-  if (savedTheme === 'light') {
-    document.body.classList.remove('dark');
-  } else {
+  if (savedTheme === 'dark') {
     document.body.classList.add('dark');
+  } else {
+    document.body.classList.remove('dark');
   }
 } catch (_) {
-  document.body.classList.add('dark');
+  document.body.classList.remove('dark');
 }
 
 renderMobileNav();
@@ -1442,6 +1450,29 @@ const toast = (message) => {
 
 /* Contact form */
 
+const buildInquiryMessage = () => {
+  const data =
+    new FormData($('#contactForm'));
+
+  const value = (name) =>
+    String(
+      data.get(name) || ''
+    ).trim() || 'Not provided';
+
+  return [
+    copy.waGreeting,
+    '',
+    `Name: ${value('name')}`,
+    `Company: ${value('company')}`,
+    `Email: ${value('email')}`,
+    `Country: ${value('country')}`,
+    `Estimated volume: ${value('volume')}`,
+    `Product: ${value('product')}`,
+    '',
+    `Message: ${value('message')}`
+  ].join('\n');
+};
+
 $('#contactForm').onsubmit = (e) => {
   e.preventDefault();
 
@@ -1459,35 +1490,36 @@ $('#contactForm').onsubmit = (e) => {
     return;
   }
 
-  const data =
-    new FormData(form);
-
-  const value = (name) =>
-    String(
-      data.get(name) || ''
-    ).trim() || 'Not provided';
-
-  const message = [
-    copy.waGreeting,
-    '',
-    `Name: ${value('name')}`,
-    `Company: ${value('company')}`,
-    `Email: ${value('email')}`,
-    `Country: ${value('country')}`,
-    `Estimated volume: ${value('volume')}`,
-    `Product: ${value('product')}`,
-    '',
-    `Message: ${value('message')}`
-  ].join('\n');
-
   window.open(
     `https://wa.me/${settings.whatsappNumber}?text=${encodeURIComponent(
-      message
+      buildInquiryMessage()
     )}`,
     '_blank',
     'noopener'
   );
 };
+
+$('#sendByEmail')?.addEventListener(
+  'click',
+  () => {
+    const form = $('#contactForm');
+
+    if (!form.reportValidity()) {
+      return;
+    }
+
+    const product =
+      new FormData(form).get('product') ||
+      'Vanilla inquiry';
+
+    window.location.href =
+      `mailto:${settings.contactEmail || 'nusavaniid@gmail.com'}?subject=${encodeURIComponent(
+        `Sourcing Quotation — ${product}`
+      )}&body=${encodeURIComponent(
+        buildInquiryMessage()
+      )}`;
+  }
+);
 
 /* Remove unused subscribe form */
 
