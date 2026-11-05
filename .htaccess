@@ -20,6 +20,11 @@ ErrorDocument 403 /404.html
   RewriteRule ^index\.html$ / [R=301,L]
   RewriteCond %{THE_REQUEST} \s/+(.+)\.html(?:[\s?]|$) [NC]
   RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+  # Serve extension-less page URLs (e.g. /products -> products.html)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^([^./]+)$ $1.html [L]
 </IfModule>
 
 # ---------- Security headers ----------

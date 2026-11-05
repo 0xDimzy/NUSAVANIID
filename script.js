@@ -48,29 +48,24 @@ const en = {
 
   features: [
     [
-      '✧',
-      'Clear Product Specifications',
-      'Discuss format, origin, grade, packaging, and intended application before an order is confirmed.'
-    ],
-    [
       '♧',
-      'Thoughtful Sourcing',
-      'We are building direct relationships with Indonesian growers and trusted local partners.'
+      'Direct Farm Sourcing',
+      'Direct relationships with Java vanilla growers — no brokers between the vine and your production line.'
     ],
     [
-      '◎',
-      'Practical Pricing Conversations',
-      'Ask for a quotation based on product format, quantity, packaging, and destination.'
+      '✧',
+      'Phytosanitary Certified',
+      'Every export shipment travels with phytosanitary certification and complete export paperwork.'
     ],
     [
-      '♙',
-      'Direct Communication',
-      'Speak with the team directly from the first sample request through local delivery.'
+      '♨',
+      'Vacuum-Sealed Bulk Packaging',
+      'Pods and powder vacuum-sealed from 1 kg to 25 kg, locking in moisture and aroma in transit.'
     ],
     [
-      '✉',
-      'Responsive Support',
-      'Questions, documents, and next steps are handled clearly through direct contact.'
+      '⚓',
+      'Global Logistics',
+      'Air and sea freight coordinated from Indonesia to kitchens, bakeries and extract plants worldwide.'
     ]
   ],
 
@@ -281,14 +276,14 @@ const arrowIcon = `
 
 const copy = {
   products: [
-    'OUR PRODUCTS',
-    'Vanilla for every application.',
-    'From gourmet beans to custom extracts, every format begins with the same uncompromising standard.'
+    'THE PRODUCT LINEUP',
+    'Three vanillas. One farm standard.',
+    'From gourmet whole beans to ultra-fine pure ground powder, every format begins with the same uncompromising standard.'
   ],
 
   why: [
-    'WHY NUSAVANIID',
-    'Built for buyers<br><i>who think long-term.</i>'
+    'WHY CHOOSE NUSAVANIID',
+    'Built for buyers<br><i>who can’t afford a bad batch.</i>'
   ],
 
   export: [
@@ -320,7 +315,7 @@ const copy = {
   footer: [
     'Products',
     'Company',
-    'Connect'
+    'Contact & Social'
   ],
 
   labels: [
@@ -434,153 +429,188 @@ const iconSvg = (icon) => {
   `;
 };
 
-let activeProduct = 0;
+/* Product catalog data — single source for homepage overview,
+   the /products catalog page, and the RFQ product select */
 
-const renderSpecValue = (label, value) =>
-  label === 'Length / format'
-    ? value
-        .split(' · ')
-        .map((size) => `<span>${size}</span>`)
-        .join('')
-    : value;
+const catalog = [
+  {
+    id: 'planifolia',
+    name: 'Planifolia Vanilla · Grade A',
+    grade: 'Gourmet · Black',
+    category: 'beans',
+    img: 'images/GRADE-A-opt.jpg',
+    notes:
+      'Bold creamy aroma with high vanillin content. Supple, glossy pods for pastry, ice cream and fine dining.',
+    badges: [
+      ['Moisture', '25–35%'],
+      ['Vanillin', '2.0–2.5%'],
+      ['Length', '14–19 cm']
+    ],
+    specs: [
+      ['Harvest Origin', 'Indonesia (East Java)'],
+      ['Moisture Content', '25–35%'],
+      ['Pod Length', '14–19 cm'],
+      ['Packaging', 'Vacuum 1kg / Carton 10kg']
+    ]
+  },
+  {
+    id: 'tahitian',
+    name: 'Tahitian Vanilla · Grade A',
+    grade: 'Grade A · Gourmet',
+    category: 'beans',
+    img: 'images/TAHITIAN-opt.jpg',
+    notes:
+      'Floral, fruity notes from oil-rich, plump pods. A perfumed profile for chocolate, desserts and craft drinks.',
+    badges: [
+      ['Moisture', '25–35%'],
+      ['Profile', 'Floral & Fruity'],
+      ['Length', '17 cm']
+    ],
+    specs: [
+      ['Harvest Origin', 'Indonesia (East Java)'],
+      ['Moisture Content', '25–35%'],
+      ['Pod Length', '17 cm'],
+      ['Packaging', 'Vacuum 1kg / Carton 10kg']
+    ]
+  },
+  {
+    id: 'powder',
+    name: 'Vanilla Powder · 100% Pure',
+    grade: 'Ground Bean · Pure',
+    category: 'powder',
+    img: 'images/Vanila-Powder-opt.jpg',
+    notes:
+      '100% whole ground vanilla beans. Zero additives, zero sugar — the entire pod, finely milled.',
+    badges: [
+      ['Vanillin', '0.5–1%'],
+      ['Grind', '50–150 µm'],
+      ['Purity', '100% Pods']
+    ],
+    specs: [
+      ['Harvest Origin', 'Indonesia (East Java)'],
+      ['Form', 'Whole pod, ground'],
+      ['Grind Size', '50–150 micron, oily'],
+      ['Packaging', 'Vacuum 1kg / Carton 10kg']
+    ]
+  }
+];
 
-function renderProducts() {
-  const list = locale().products;
+const waInquiryLink = (productName) =>
+  `https://wa.me/${settings.whatsappNumber}?text=${encodeURIComponent(
+    `Hello Nusavaniid, I'd like B2B wholesale pricing for ${productName}. Quantity (kg): ___ / Destination country: ___`
+  )}`;
 
-  $('#productTabs').innerHTML = list
+const arrowSvg = `
+  <span class="arrow-icon" aria-hidden="true">
+    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 13L13 3M6 3H13V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+`;
+
+function renderHomeProducts() {
+  const grid = $('#homeProducts');
+
+  if (!grid) {
+    return;
+  }
+
+  grid.innerHTML = catalog
     .map(
-      (p, i) => `
-        <button
-          class="product-tab ${i === activeProduct ? 'active' : ''}"
-          data-product="${i}"
-        >
-          ${p[0]}
-        </button>
+      (p) => `
+        <article class="home-product-card reveal">
+          <div class="home-product-media">
+            <img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async">
+            <span class="home-product-grade">${p.grade}</span>
+          </div>
+          <div class="home-product-body">
+            <h3>${p.name}</h3>
+            <p>${p.notes}</p>
+            <div class="spec-badges">
+              ${p.badges
+                .map(
+                  ([k, v]) => `
+                    <span>${k} <b>${v}</b></span>
+                  `
+                )
+                .join('')}
+            </div>
+            <a class="home-product-link" href="/products">Full specifications →</a>
+          </div>
+        </article>
       `
     )
     .join('');
+}
 
-  const p = list[activeProduct];
-  const ps = locale().productStrings;
-  const kind =
-    activeProduct === 2 ? 'powder' : activeProduct === 1 ? 'tahitian' : 'planifolia';
-
-  const pricingTiers = ps.tiers[kind];
-
-  const specs = ps.specs[kind];
-
-  const renderSpec = (x) => `
-    <div>
-      <small>${x[0]}</small>
-      <b>${x[1]}</b>
-    </div>
-  `;
-
-  const columns = [
-    specs.filter((_, index) => index % 2 === 0),
-    specs.filter((_, index) => index % 2 === 1)
-  ];
-
-  $('#productDetail').innerHTML = `
-    <div class="product-media">
-      <img
-        src="${p[2]}"
-        alt="${p[0]}"
-        loading="eager"
-        decoding="async"
-      >
-      <div class="product-origin-pill">${ps.originPill}</div>
-    </div>
-
-    <div class="product-copy">
-      <div class="product-badges">
-        <span class="tag">${p[1]}</span>
-        <span class="tag gold-tag">${ps.exportTag}</span>
+function catalogCard(p) {
+  return `
+    <article class="catalog-card">
+      <div class="catalog-card-media">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async">
+        <span class="home-product-grade">${p.grade}</span>
       </div>
-
-      <h3>
-        ${p[0]}
-      </h3>
-
-      <div class="product-pricing-block">
-        <span class="pricing-label">${ps.pricingLabel}</span>
-        <div class="pricing-tiers">
-          ${pricingTiers
+      <div class="catalog-card-body">
+        <h3>${p.name}</h3>
+        <p>${p.notes}</p>
+        <div class="catalog-specs">
+          ${p.specs
             .map(
-              (t) => `
-                <div class="price-chip ${t.featured ? 'featured' : ''}">
-                  <span class="price-len">${t.len}</span>
-                  <b class="price-val">${t.price}${t.unit === false ? '' : '<small>/kg</small>'}</b>
+              ([k, v]) => `
+                <div>
+                  <small>${k}</small>
+                  <b>${v}</b>
                 </div>
               `
             )
             .join('')}
         </div>
+        <div class="catalog-card-actions">
+          <a class="button gold" href="${waInquiryLink(p.name)}" target="_blank" rel="noopener">
+            <span>Inquire B2B Pricing</span>
+            ${arrowSvg}
+          </a>
+        </div>
       </div>
-
-      <div class="spec-grid">
-        ${columns
-          .map(
-            (column) => `
-              <div class="spec-column">
-                ${column
-                  .map(renderSpec)
-                  .join('')}
-              </div>
-            `
-          )
-          .join('')}
-      </div>
-
-      <div class="product-actions">
-        <a
-          class="button gold"
-          href="#contact"
-        >
-          <span>${ps.inquire}</span>
-          <span class="arrow-icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 13L13 3M6 3H13V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-        <a
-          class="button outline"
-          href="https://wa.me/${settings.whatsappNumber}?text=${encodeURIComponent(
-            `${ps.specSheetMsg} ${p[0]}`
-          )}"
-          target="_blank"
-          rel="noopener"
-        >
-          ${ps.specSheet}
-        </a>
-        <a
-          class="spec-csv"
-          href="nusavaniid-catalog.pdf"
-          target="_blank"
-          rel="noopener"
-        >
-          ⤓ Product Catalog (PDF)
-        </a>
-      </div>
-
-    </div>
+    </article>
   `;
+}
 
-  $$('[data-product]').forEach((button) => {
-    button.onclick = () => {
-      activeProduct = Number(
-        button.dataset.product
-      );
+function renderCatalog(filter = 'all') {
+  const grid = $('#catalogGrid');
 
-      renderProducts();
-    };
+  if (!grid) {
+    return;
+  }
+
+  const list =
+    filter === 'all'
+      ? catalog
+      : catalog.filter((p) => p.category === filter);
+
+  grid.innerHTML = list.length
+    ? list.map(catalogCard).join('')
+    : '<p class="catalog-empty">No products in this category yet.</p>';
+
+  $$('#catalogFilters .product-tab').forEach((btn) => {
+    const on = btn.dataset.filter === filter;
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-selected', String(on));
+    btn.onclick = () => renderCatalog(btn.dataset.filter);
   });
+}
 
-  $('#productSelect').innerHTML = list
+function fillProductSelect() {
+  const select = $('#productSelect');
+
+  if (!select) {
+    return;
+  }
+
+  select.innerHTML = catalog
     .map(
       (p) =>
-        `<option>${p[0]}</option>`
+        `<option>${p.name}</option>`
     )
     .join('');
 }
@@ -588,9 +618,12 @@ function renderProducts() {
 function renderDynamic() {
   const content = locale();
 
-  renderProducts();
+  renderHomeProducts();
+  renderCatalog();
+  fillProductSelect();
 
-  $('#featureGrid').innerHTML =
+  write(
+    '#featureGrid',
     content.features
       .map(
         (x) => `
@@ -611,9 +644,11 @@ function renderDynamic() {
           </article>
         `
       )
-      .join('');
+      .join('')
+  );
 
-  $('#processLine').innerHTML =
+  write(
+    '#processLine',
     content.steps
       .map(
         (x, i) => `
@@ -638,9 +673,11 @@ function renderDynamic() {
           </div>
         `
       )
-      .join('');
+      .join('')
+  );
 
-  $('#testimonialGrid').innerHTML =
+  write(
+    '#testimonialGrid',
     content.testimonials
       .map(
         (x) => `
@@ -662,7 +699,8 @@ function renderDynamic() {
           </article>
         `
       )
-      .join('');
+      .join('')
+  );
 
   observeReveals();
 }
@@ -905,6 +943,9 @@ const galleryFiles = [
 const INITIAL_GALLERY_COUNT = 4;
 let isGalleryExpanded = false;
 
+/* Gallery — homepage only (guarded so the catalog page can reuse script.js) */
+
+if ($('#galleryGrid')) {
 $('#galleryGrid').innerHTML =
   galleryFiles
     .map(
@@ -1227,6 +1268,7 @@ galleryLightbox?.addEventListener(
     passive: true
   }
 );
+}
 
 /* Footer cleanup */
 
@@ -1250,14 +1292,7 @@ $$('.site-footer a').forEach(
   }
 );
 
-/* Trust strip */
-
-$('#trustTrack').innerHTML =
-  [...trustItems, ...trustItems]
-    .map(
-      (x) => `<span>${x}</span>`
-    )
-    .join('');
+/* Trust strip — filled by renderTrustStrip() (called from setEnglish) */
 
 /* Mobile navigation & Theme */
 
@@ -1448,8 +1483,9 @@ const toast = (message) => {
   }, 3200);
 };
 
-/* Contact form */
+/* Contact form — homepage only */
 
+if ($('#contactForm')) {
 const buildInquiryMessage = () => {
   const data =
     new FormData($('#contactForm'));
@@ -1520,6 +1556,7 @@ $('#sendByEmail')?.addEventListener(
       )}`;
   }
 );
+}
 
 /* Remove unused subscribe form */
 
@@ -1643,10 +1680,11 @@ if (footerBrand) {
   footerBrand.innerHTML = `
     <img
       class="brand-logo"
-      src="assets/nusavaniid-logo-transparent.png"
+      src="assets/nusavaniid-logo.svg?v=5"
       alt="Nusavaniid premium vanilla"
     >
   `;
+
 }
 
 /* Remove unused legal footer item */

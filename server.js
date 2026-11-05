@@ -75,6 +75,19 @@ function resolveFilePath(reqUrl) {
     return inRoot;
   }
 
+  // Clean-URL fallback (mirrors .htaccess RewriteRule): /products -> products.html
+  if (relPath && !path.extname(relPath)) {
+    const withHtml = relPath + '.html';
+    const inDeployHtml = path.join(DEPLOY_DIR, withHtml);
+    if (inDeployHtml.startsWith(DEPLOY_DIR) && fs.existsSync(inDeployHtml) && fs.statSync(inDeployHtml).isFile()) {
+      return inDeployHtml;
+    }
+    const inRootHtml = path.join(ROOT_DIR, withHtml);
+    if (inRootHtml.startsWith(ROOT_DIR) && fs.existsSync(inRootHtml) && fs.statSync(inRootHtml).isFile()) {
+      return inRootHtml;
+    }
+  }
+
   return null;
 }
 
