@@ -398,6 +398,15 @@ const iconSvg = (icon) => {
     '◎':
       '<circle cx="12" cy="12" r="8.5"/><path d="M12 8v4l2.7 2.2"/>',
 
+    '☼':
+      '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+
+    '♨':
+      '<path d="M14 14.8V5a2 2 0 1 0-4 0v9.8a4 4 0 1 0 4 0"/>',
+
+    '▣':
+      '<path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8"/>',
+
     '♙':
       '<circle cx="12" cy="7" r="3"/><path d="M5 21c.7-4 3-6 7-6s6.3 2 7 6M9 11l-2 3M15 11l2 3"/>',
 
@@ -682,10 +691,6 @@ function renderDynamic() {
       .map(
         (x) => `
           <article class="testimonial reveal">
-
-            <div class="stars">
-              ★★★★★
-            </div>
 
             <blockquote>
               “${x[0]}”
