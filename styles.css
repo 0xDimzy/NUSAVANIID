@@ -573,7 +573,7 @@ body.dark .brand-logo {
 
 .hero-content {
   position: relative;
-  /* .container handles the width cap (1180px) so the hero matches
+  /* .container handles the width cap so the hero matches
      the section width below it */
   padding: clamp(30px, 4.5vw, 52px);
   border-radius: var(--r-lg);
