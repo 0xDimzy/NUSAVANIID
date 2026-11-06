@@ -58,7 +58,7 @@ const en = {
       'Every export shipment travels with phytosanitary certification and complete export paperwork.'
     ],
     [
-      '♨',
+      '▣',
       'Vacuum-Sealed Bulk Packaging',
       'Pods and powder vacuum-sealed from 1 kg to 25 kg, locking in moisture and aroma in transit.'
     ],
@@ -389,11 +389,13 @@ const locale = () => en;
 
 const iconSvg = (icon) => {
   const paths = {
+    /* shield-check — phytosanitary certified */
     '✧':
-      '<path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/>',
+      '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
 
+    /* sprout — farm sourcing */
     '♧':
-      '<path d="M12 21V8M8 12c-2.8 0-5-1.8-5-4a4 4 0 0 1 7-2.6A4 4 0 0 1 17 8c0 2.2-2.2 4-5 4ZM12 8a4 4 0 0 1 7-2.6A4 4 0 0 1 17 13c-2.8 0-5-1.8-5-4Z"/>',
+      '<path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1.1 1.6-2.7 1.7-4.6-2.7.1-4 1-4.9 2z"/>',
 
     '◎':
       '<circle cx="12" cy="12" r="8.5"/><path d="M12 8v4l2.7 2.2"/>',
@@ -410,20 +412,21 @@ const iconSvg = (icon) => {
     '♙':
       '<circle cx="12" cy="7" r="3"/><path d="M5 21c.7-4 3-6 7-6s6.3 2 7 6M9 11l-2 3M15 11l2 3"/>',
 
+    /* truck — global logistics / local delivery */
     '⚓':
-      '<path d="M12 3v15M8 7h8M5 12a7 7 0 0 0 14 0M3 12h4M17 12h4M8 21h8"/>',
+      '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
 
+    /* flask-conical — quality control */
     '⚗':
-      '<path d="M9 3h6M10 3v6l-5 8.5A2.3 2.3 0 0 0 7 21h10a2.3 2.3 0 0 0 2-3.5L14 9V3M7 16h10"/>',
+      '<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 17.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-7.127a2 2 0 0 1-.21-.896V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/>',
 
+    /* mail — contact */
     '✉':
       '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/>',
 
+    /* scissors — harvest */
     '✂':
-      '<circle cx="6" cy="7" r="2.5"/><circle cx="6" cy="17" r="2.5"/><path d="m8 8 11 8M8 16 19 8"/>',
-
-    '♨':
-      '<path d="M8 19c-2-2 2-3 0-6M12 21c-2-2 2-4 0-7M16 19c-2-2 2-3 0-6"/>'
+      '<circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/>'
   };
 
   return `
