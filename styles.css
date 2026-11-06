@@ -48,8 +48,8 @@
   --font-body: "Manrope", system-ui, sans-serif;
   --font-label: "Manrope", system-ui, sans-serif;
 
-  /* Footer follows the theme */
-  --footer-bg: #ece2d0;
+  /* Footer follows the theme — same surface as the page */
+  --footer-bg: var(--cream);
   --footer-heading: #9e7826;
   --footer-text: rgba(30, 17, 10, 0.72);
   --footer-strong: #1e110a;
@@ -96,7 +96,7 @@ body.dark {
   --header-line: rgba(245, 246, 240, 0.16);
   --header-accent: var(--gold-bright);
 
-  --footer-bg: #1e110a;
+  --footer-bg: var(--bg);
   --footer-heading: var(--gold-bright);
   --footer-text: rgba(245, 246, 240, 0.66);
   --footer-strong: var(--cream);
