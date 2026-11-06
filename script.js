@@ -1468,10 +1468,6 @@ document.addEventListener('keydown', (e) => {
 
 /* Header scroll */
 
-window.addEventListener('scroll', () => {
-  $('#header')?.classList.toggle('scrolled', scrollY > 30);
-});
-
 /* Toast */
 
 const toast = (message) => {
@@ -1690,15 +1686,6 @@ if (footerBrand) {
     >
   `;
 
-}
-
-/* Remove unused legal footer item */
-
-const legalLinks =
-  $('.footer-bottom > span:last-child');
-
-if (legalLinks) {
-  legalLinks.remove();
 }
 
 /* Initialize */
